@@ -20,7 +20,7 @@ jobs:
         with:
           image: alpine:3.12.1 
           format: json
-          output: alpine.json
+          output: alpine-scancode.json
           scancode: 'true'
       - uses: actions/upload-artifact@v2
         with:
