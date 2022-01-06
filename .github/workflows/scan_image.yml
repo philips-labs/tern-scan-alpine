@@ -5,23 +5,26 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: philips-labs/tern-action@add-scancode
+      - uses: philips-labs/tern-action@update-versions
         id: scan
         with:
           image: alpine:3.12.1 
           format: json
           output: alpine.json
+
       - uses: actions/upload-artifact@v2
         with:
           name: tern 
           path: ${{ steps.scan.outputs.file }} 
-      - uses: philips-labs/tern-action@add-scancode
+
+      - uses: philips-labs/tern-action@update-versions
         id: scan2
         with:
           image: alpine:3.12.1 
           format: json
           output: alpine-scancode.json
           scancode: 'true'
+
       - uses: actions/upload-artifact@v2
         with:
           name: tern
